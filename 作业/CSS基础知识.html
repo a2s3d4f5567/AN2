@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS基础知识</title>
+    <style>
+        :root {
+            --primary-color: #367eea;
+            --secondary-color: #98cdee;
+            --text-color: #333;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f7fa;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1, h2, h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, monospace;
+        }
+        
+        .box {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #000;
+            margin: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(9, 74, 94, 0.5);
+        }
+        
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>CSS基础</h1>
+        <img src="C:\Users\安秀萍\Desktop\背景.png" alt="CSS使用方式" 
+             style="display: block; max-width: 100%; height: auto; margin: 20px auto; border-radius: 8px;">
+        <p>CSS(Cascading Style Sheets)层级样式表，用以控制页面样式，实现页面中元素的表现形式、区块的布局、不同设备的适应等等，是 Web 标准中实现内容和表现相分离的唯一机制。</p>
+    </div>
+    <div class="card">
+        <h2>CSS使用方式</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>外部link</th>
+                    <th>内部style</th>
+                    <th>内嵌style</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></td>
+                    <td><code>&lt;style&gt;...&lt;/style&gt;</code></td>
+                    <td><code>&lt;p style="color:red"&gt;</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>CSS语法</h2>
+        <p>语法声明分成两类：at 规则 (at-rules) 和 CSS 规则集 (rule sets)。声明之间可由空白字符连接。</p>
+        <ul>
+            <li>At 规则以"@"关键字开始，之后紧跟标志符。比如："@import"</li>
+            <li>规则集由选择符和跟随其后的声明块组成。声明块以"{"开始，以"}"结束</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>选择符</h2>
+        <p>分类</p>
+        <table border="1" cellpadding="8" style="margin-top: 20px;">
+            <thead>
+                <tr>
+                    <th>简单选择符</th>
+                    <th>伪元素选择符</th>
+                    <th>组合选择符</th>
+                    <th>群组选择符</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Type Selector</td>
+                    <td>Attribute Selector</td>
+                    <td>Class Selector</td>
+                    <td>h1, h2, h3</td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+            <div>
+                <h3>简单选择符</h3>
+                <p>类型选择符（Type Selector），也叫做元素选择符：</p>
+                <code>h1 {color:red}</code>
+                <p>上述规则将使文档中所有的 <code>h1</code> 元素字体颜色为红色</p>
+            </div>
+            <div>
+                <h3>属性选择符</h3>
+                <p>属性选择符（Attribute Selector）将选定那些拥有匹配属性的元素</p>
+                <code>[type="text"] {border: 1px solid}</code>
+            </div>
+            <div>
+                <h3>类选择符</h3>
+                <p>类选择符（Class Selector）将选定那些拥有匹配类名的元素</p>
+                <code>.intro {font-weight: bold}</code>
+            </div>
+            <div>
+                <h3>ID选择符</h3>
+                <p>将选择 `ID` 属性等于指定值的元素。按照 W3C 标准，`ID` 属性在 `DOM` 中的值应该是唯一的。</p>
+                <code>#bar        /*将选择所有具有 id="bar"属性值的元素*/
+                    h1#bar      /*将选择具有 id="bar"的 h1 元素*/</code>
+        </div>
+    </div>
+    <div class="card">
+        <h2>文本样式</h2>
+        <p>文本样式包括文本颜色、文本对齐方式、文本装饰等。</p>
+        <table border="1" cellpadding=“8” style="margin-top: 20px;">
+            <thead>
+                <tr>
+                    <th>字体</th>
+                    <th>斜体</th>
+                    <th>粗体</th>
+                    <th>大小</th>
+                    <th>颜色</th>
+                    <th>对齐</th>
+                    <th>装饰</th>
+                    <th>间距</th>
+                    <th>阴影</th>
+                </tr>
+            </thead>
+            </table>    
+    </div>
+
+    <div class="card">
+        <h2>背景样式</h2>
+        <p>背景样式包括背景颜色、背景图片、背景位置、背景重复等。</p>
+        <table border="1" cellpadding=“8” style="margin-top: 20px;">
+            <thead>
+                <tr>
+                    <th>背景颜色</th>
+                    <th>背景图片</th>
+                    <th>渐变背景</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td><code>background-color: #f0f0f0;</code></td>
+                        <td><code>background-image: url('background.jpg');</code></td>
+                        <td><code>background: linear-gradient(to right, red, blue);</code></td>
+                    </tr>
+                </tbody>
+        </table>
+    </div> 
+    <div class="card">
+        <h2>盒模型</h2>
+        <div class="box">
+            <p>所有 HTML 元素，在页面的呈现过程中，都遵循 CSS 制定的盒模型（Box Model），盒模型是一个包含外边距（margin）、边框线（border）、内边距（padding）以及内容的矩形容器。</p>
+        </div>
+    <div class="card">
+            <h2>定位及布局</h2>
+            <h3>信息流</h3>
+            <p>浏览器在呈现信息时会按照元素的类型进行处理，它将块元素从上到下显示（块元素与块元素之间另起一行），将行内元素按语言方向水平显示（如汉字、英语是从左到右，维吾尔语、阿拉伯语等有些语言是从右到左），行内元素直到到达容器边缘时才换行显示，这种显示元素的方式叫做页面的正常流。</p>
+            <h3>display</h3>
+            <h4>设置元素的显示方式</h4>
+            <p>元素如何显示，可以通过 `display` 属性进行指定。每一个元素都有一个默认的 `display` 属性，但这个属性值可以修改。块元素和行内元素可通过 `display` 属性改变它们的显示方式，比如在某些情景，编辑人员需要给行内元素添加高度，以改进元素的显示效果，行内元素是无法直接通过 `width` 属性指定宽度的，但可以通过 `display` 属性将其变为块元素，再为其添加高度。</p>
+            <code>margin: 10px;</code>
+            <h3>position</h3>
+            <p> 属性用来设定对象的定位方式，是非常强大、灵活的改变元素信息流的方式之一。relative、absolute、fixed</p>
+            </div>
+            <div class="card">
+            <h2>Flexbox</h2>
+            <p> Flex box布局模型的主要目的是提供更有效率的布局方式，尤其是当容器内元素的尺寸不固定的时候更能表现出它的优势。它能够自动识别子元素的尺寸，从而为盒装模型提供更高的灵活</p>
+            <h3> flexbox 设定容器</h3> flexbox 设定容器
+             任何一个容器都可以指定为Flexbox布局
+                #.flex-container {
+                  display: flex;
+                }#
+    </div>
+</body>
+</html>

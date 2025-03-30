@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML基础知识</title>
+    <style>
+        :root {
+            --primary-color: #367eea;
+            --secondary-color: #98cdee;
+            --text-color: #333;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        
+        h1, h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+        
+        .code-example {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-family: Consolas, monospace;
+        }
+        
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, monospace;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .feature-img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>HTML基础</h1>
+        <img src="C:\Users\安秀萍\Desktop\背景.png" alt="HTML结构" class="feature-img">
+        <p>HTML是一种用于创建网页的标记语言。它使用标签来描述网页的结构和内容。</p>
+    </div>
+
+    <div class="card">
+        <h2>HTML结构</h2>
+        <div class="code-example">
+            &lt;!DOCTYPE html&gt;<br>
+            &lt;html&gt;<br>
+            &nbsp;&nbsp;&lt;head&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;文档标题&lt;/title&gt;<br>
+            &nbsp;&nbsp;&lt;/head&gt;<br>
+            &nbsp;&nbsp;&lt;body&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- 页面内容 --&gt;<br>
+            &nbsp;&nbsp;&lt;/body&gt;<br>
+            &lt;/html&gt;
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>HTML标签</h2>
+        <p>HTML使用标签来标记网页的不同部分，如标题、段落、链接等。以下是一些常用的HTML标签：</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+            <div>
+                <h3>基础标签</h3>
+                <ul>
+                    <li><code>&lt;h1&gt;</code>到<code>&lt;h6&gt;</code>：标题标签</li>
+                    <li><code>&lt;p&gt;</code>：段落标签</li>
+                    <li><code>&lt;a&gt;</code>：链接标签</li>
+                    <li><code>&lt;ul&gt;</code>：无序列表</li>
+                </ul>
+            </div>
+            <div>
+                <h3>结构标签</h3>
+                <ul>
+                    <li><code>&lt;div&gt;</code>：逻辑区块</li>
+                    <li><code>&lt;table&gt;</code>：表格</li>
+                    <li><code>&lt;form&gt;</code>：表单</li>
+                    <li><code>&lt;img&gt;</code>：图片</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>HTML属性</h2>
+        <p>属性用于提供额外的信息给HTML元素，例如链接的目标URL或图片的来源。</p>
+        <div class="code-example">
+            &lt;a href="https://example.com" target="_blank"&gt;示例链接&lt;/a&gt;<br>
+            &lt;img src="image.jpg" alt="示例图片" width="200"&gt;
+        </div>
+    </div>
+</body>
+</html>
