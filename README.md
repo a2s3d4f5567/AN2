@@ -1,5 +1,3 @@
-# AN2
-我的web作业
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -10,7 +8,7 @@
         .banner {
             width: 100%;
             height: 400px;
-            background: url("C:\Users\安秀萍\Desktop\背景.png") center/cover no-repeat;
+            background: url('images/背景.png') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
