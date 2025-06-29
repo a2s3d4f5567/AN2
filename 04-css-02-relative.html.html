@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>相对定位与绝对定位</title>
+    <style type="text/css">
+        body {
+            width: 960px;
+            margin: 0 auto;
+            font-family: 微软雅黑； font-size: 18px;
+            line-height: 1.8em;
+        }
+
+        div {
+            width: 300px;
+            float: left;
+        }
+
+        .relative {
+            position: relative;
+            top: 150px;
+        }
+
+        .absolute {
+            position: absolute;
+            top: 150px;
+        }
+
+        .bg {
+            background-color: #fcc;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2>正常信息流</h2>
+        <p>落实“高效办成一件事” 谱写政务服务便民利企新篇章</p>
+        <p>南昌拌粉、南城水粉、铅山烫粉……近日在江西南昌举行的2025米粉产业交易会上，江西各地米粉同台竞“味”，征服食客味蕾。</p>
+        <p class="bg">江西人对米粉的追求，是一种刻进“DNA”里的热爱。</p>
+        <p>
+            他们凭借驾驭食物的智慧，将鄱阳湖畔的稻穗演化为灶台上的米粉"
+        </p>
+        <p>各式各样的米粉，不仅化为江西人平凡生活的一日三餐，还飘香海内外。</p>
+    </div>
+    <div>
+        <h2>相对定位</h2>
+        <p>江西人美好的一天，是从“嗦”一碗热气腾腾的米粉开始。</p>
+        <p>一天不吃米粉，总感觉缺点什么</p>
+        <p class="bg relative">　江西自古以来就是稻作昌隆的鱼米之乡</p>
+        <p>
+            米粉，这个传统美食正向现代产业跨越。"
+        </p>
+        <p>米粉是中国南方地区广泛流传的传统主食之一</p>
+        <code>.relative { position: relative; top:150px;}</code>
+    </div>
+    <div>
+        <h2>绝对定位</h2>
+        <p>一碗米粉看似简单，要想在高手如林的“粉圈”突出重围却并不容易。</p>
+        <p>作为地方小吃，江西米粉何以香“出圈”？</p>
+        <p class="bg absolute">江西米粉的走红，是一场政府与市场的双向奔赴。</p>
+        <p>
+            曾经低调的江西米粉正在加速“吸粉”，成为“流量担当”。"
+        </p>
+        <p>一汤一粉一座城，有滋有味有南昌。</p>
+        <code>.absolute { position: absolute; top:150px;} </code>
+    </div>
+</body>
+
+</html>
