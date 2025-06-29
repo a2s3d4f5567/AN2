@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 异步编程练习</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+            position: sticky;
+            top: 0;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        #demo {
+            max-height: 500px;
+            overflow-y: auto;
+            margin: 20px;
+        }
+
+        .time-container {
+            margin: 30px auto;
+            max-width: 600px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .source {
+            margin-top: 10px;
+            color: #666;
+            font-size: 14px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demo">
+    </div>
+    <script>
+        async function getSomething() {
+            await new Promise(resolve => setTimeout(function () {
+                console.log('333333')
+                resolve();
+            }, 2000))
+        }
+        console.log('22222222')
+        getSomething()
+        console.log('1111111111') 
+    </script>
+    <script>
+        // 获取仓库所有提交的文件信息
+        async function getCommitDetails(owner, repo) {
+            try {
+                // 首先获取仓库的所有提交
+                let allCommits = [];
+                let page = 1;
+                const perPage = 100; // 每页获取100个提交，GitHub API最大限制
+
+                while (true) {
+                    const commitsUrl = `https://api.github.com/repos/${owner}/${repo}/commits?page=${page}&per_page=${perPage}`;
+                    const commitsResponse = await fetch(commitsUrl);
+
+                    if (!commitsResponse.ok) {
+                        throw new Error(`网络响应失败 (commits): ${commitsResponse.statusText}`);
+                    }
+
+                    const commits = await commitsResponse.json();
+
+                    // 如果没有更多提交了，就退出循环
+                    if (commits.length === 0) {
+                        break;
+                    }
+
+                    allCommits = allCommits.concat(commits);
+                    page++;
+
+                    // GitHub API有速率限制，免费用户每小时60次请求
+                    // 这里简单处理，每获取100个提交暂停1秒
+                    if (page % 2 === 0) {
+                        await new Promise(resolve => setTimeout(resolve, 1000));
+                    }
+                }
+
+                console.log(`共获取到 ${allCommits.length} 个提交`);
+
+                // 处理每个提交，获取其中的文件信息
+                const commitDetailsPromises = allCommits.map(async (commit, index) => {
+                    try {
+                        // 每处理10个提交暂停一下，避免触发API速率限制
+                        if (index % 10 === 0 && index > 0) {
+                            await new Promise(resolve => setTimeout(resolve, 500));
+                        }
+
+                        const commitDetailResponse = await fetch(commit.url);
+
+                        if (!commitDetailResponse.ok) {
+                            console.error(`获取提交 ${commit.sha} 详情失败: ${commitDetailResponse.statusText}`);
+                            return [];
+                        }
+
+                        const commitDetail = await commitDetailResponse.json();
+
+                        // 提取提交中的文件信息
+                        return commitDetail.files.map(file => ({
+                            date: commit.commit.committer.date,
+                            message: commit.commit.message,
+                            author: commit.commit.author.name,
+                            filename: file.filename,
+                            status: file.status,
+                            additions: file.additions,
+                            deletions: file.deletions,
+                            changes: file.changes
+                        }));
+                    } catch (error) {
+                        console.error(`处理提交 ${commit.sha} 时出错:`, error);
+                        return [];
+                    }
+                });
+
+                // 并行处理所有提交，但为了避免API限制，使用Promise.allSettled
+                // 这会等待所有Promise完成（无论成功或失败）
+                const results = await Promise.allSettled(commitDetailsPromises);
+
+                // 收集所有成功的结果
+                const allFileChanges = results
+                    .filter(result => result.status === 'fulfilled')
+                    .flatMap(result => result.value);
+
+                console.log('所有文件变更信息：', allFileChanges);
+                return allFileChanges;
+            } catch (error) {
+                console.error('获取提交详情失败:', error);
+                return [];
+            }
+        }
+
+        getCommitDetails("a2s3d4f5567", "AN2").then(data => {
+            if (data && data.length > 0) {
+                // 按日期降序排序，最新的提交在最前面
+                const sortedData = [...data].sort((a, b) => {
+                    return new Date(b.date) - new Date(a.date);
+                });
+
+                let tableHTML = `
+                        <h2 style="text-align: center; margin-bottom: 20px; color: #333;">
+                            GitHub仓库作业提交清单
+                        </h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>提交时间</th>
+                                    <th>文件名称</th>
+                                    <th>提交者</th>
+                                    <th>提交信息</th>
+                                    <th>状态</th>
+                                    <th>添加行数</th>
+                                    <th>删除行数</th>
+                                    <th>变更总数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
+
+                sortedData.forEach((item, index) => {
+                    // 为不同状态的文件添加不同的颜色
+                    let statusClass = '';
+                    if (item.status === 'added') statusClass = 'style="color: green;"';
+                    else if (item.status === 'deleted') statusClass = 'style="color: red;"';
+                    else if (item.status === 'modified') statusClass = 'style="color: blue;"';
+                    else if (item.status === 'renamed') statusClass = 'style="color: purple;"';
+
+                    tableHTML += `
+                            <tr>
+                                <td>${index + 1}</td>
+                                <td>${new Date(item.date).toLocaleString()}</td>
+                                <td title="${item.filename}">${item.filename}</td>
+                                <td>${item.author}</td>
+                                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${item.message}">${item.message}</td>
+                                <td ${statusClass}>${item.status}</td>
+                                <td>${item.additions}</td>
+                                <td>${item.deletions}</td>
+                                <td>${item.changes}</td>
+                            </tr>
+                        `;
+                });
+
+                tableHTML += `
+                            </tbody>
+                        </table>
+                        <div class="source">
+                            <p>数据来源: GitHub API</p>
+                            <p>总计: ${sortedData.length} 条文件变更记录</p>
+                        </div>
+                    `;
+
+                document.getElementById('demo').innerHTML = tableHTML;
+            } else {
+                document.getElementById('demo').innerHTML = `
+                    <div style="text-align: center; padding: 50px;">
+                        <h2>没有找到任何提交记录</h2>
+                        <p>请检查仓库名称和所有者是否正确</p>
+                    </div>
+                `;
+            }
+        });
+    </script>
+
+</html>
