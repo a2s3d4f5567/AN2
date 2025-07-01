@@ -94,17 +94,17 @@
 ### 1. QAnything 运行截图
 *(此处将展示自行开发的 API 调用界面)*
 
-![QAnything Screenshot](https://via.placeholder.com/600x400.png?text=QAnything+Interface+Screenshot)
+![QAnything 运行截图](https://imgur.la/images/2025/07/02/QAnything-.png)(https://imgur.la/image/QAnything-%E8%BF%90%E8%A1%8C%E6%88%AA%E5%9B%BE.66T4VF)
 
 ### 2. WakaTime API 集成与展示截图
 *(此处将展示页脚显示的总编码时长)*
 
-![WakaTime Screenshot](https://via.placeholder.com/600x100.png?text=WakaTime+Footer+Screenshot)
+[![WakaTime运行截图](https://imgur.la/images/2025/07/02/WakaTime.png)](https://imgur.la/image/WakaTime%E8%BF%90%E8%A1%8C%E6%88%AA%E5%9B%BE.66TKCv)
 
 ### 3. Next.js 组织课程练习作业的运行截图
 *(此处将展示作品集导航页和某个具体练习的运行界面)*
 
-![Portfolio Screenshot](https://via.placeholder.com/600x400.png?text=Portfolio+Page+Screenshot)
+[![WakaTime运行截图](https://imgur.la/images/2025/07/02/WakaTime.png)](https://imgur.la/image/WakaTime%E8%BF%90%E8%A1%8C%E6%88%AA%E5%9B%BE.66TKCv)
 
 ## GitHub 仓库管理
 
