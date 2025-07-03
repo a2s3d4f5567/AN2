@@ -18,7 +18,7 @@ export default function PersonalInfo() {
         />
       </div>
       <div>
-        <div className="text-xl font-medium text-black">小草</div>
+        <div className="text-xl font-medium text-black">九月</div>
         <p className="text-slate-500">一位热情的 Web 学习者。</p>
         <button 
           onClick={() => setShowMore(!showMore)}
