@@ -5,7 +5,7 @@ export default function Header() {
     <header className="bg-gray-800 text-white p-4">
       <nav className="container mx-auto flex justify-between items-center">
         <Link href="/" className="font-bold text-xl hover:text-gray-300">
-          九月的网站
+          小草的网站
         </Link>
         <div className="space-x-6">
           <Link href="/portfolio" className="hover:text-gray-300">
