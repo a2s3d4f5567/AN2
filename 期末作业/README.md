@@ -89,23 +89,30 @@
 
 ## 运行截图
 
-*待项目完成后，在此处嵌入截图。*
+[![期末运行截图](https://imgur.la/images/2025/07/08/5d13a6ab461bf286d8cabe3c6dbc6efa.png)](https://imgur.la/image/%E6%9C%9F%E6%9C%AB%E8%BF%90%E8%A1%8C%E6%88%AA%E5%9B%BE.662Hfr)
 
 ### 1. QAnything 运行截图
 *(此处将展示自行开发的 API 调用界面)*
 
-![QAnything 运行截图](https://imgur.la/images/2025/07/02/QAnything-.png)(https://imgur.la/image/QAnything-%E8%BF%90%E8%A1%8C%E6%88%AA%E5%9B%BE.66T4VF)
+[![QAnything 运行截图](https://imgur.la/images/2025/07/08/QAnything-.png)](https://imgur.la/image/QAnything-%E8%BF%90%E8%A1%8C%E6%88%AA%E5%9B%BE.662vXQ)
 
 ### 2. WakaTime API 集成与展示截图
 *(此处将展示页脚显示的总编码时长)*
 
-[![WakaTime运行截图](https://imgur.la/images/2025/07/02/WakaTime.png)](https://imgur.la/image/WakaTime%E8%BF%90%E8%A1%8C%E6%88%AA%E5%9B%BE.66TKCv)
+[![WakaTime运行截图](https://imgur.la/images/2025/07/08/WakaTime.png)](https://imgur.la/image/WakaTime%E8%BF%90%E8%A1%8C%E6%88%AA%E5%9B%BE.662D9a)
 
 ### 3. Next.js 组织课程练习作业的运行截图
 *(此处将展示作品集导航页和某个具体练习的运行界面)*
 
-[![WakaTime运行截图](https://imgur.la/images/2025/07/02/WakaTime.png)](https://imgur.la/image/WakaTime%E8%BF%90%E8%A1%8C%E6%88%AA%E5%9B%BE.66TKCv)
-
+[![03 css 02](https://imgur.la/images/2025/07/08/03-css-02.png)](https://imgur.la/image/03-css-02.66h1XS)
+[![03 css 01](https://imgur.la/images/2025/07/08/03-css-01.png)](https://imgur.la/image/03-css-01.66hGJU)
+[![04 css 01](https://imgur.la/images/2025/07/08/04-css-01.png)](https://imgur.la/image/04-css-01.66hYNZ)
+[![04 css 02 Relative](https://imgur.la/images/2025/07/08/04-css-02-Relative.png)](https://imgur.la/image/04-css-02-Relative.6626aG)
+[![04 css 02](https://imgur.la/images/2025/07/08/04-css-02.png)](https://imgur.la/image/04-css-02.662S4w)
+[![05 java](https://imgur.la/images/2025/07/08/05-java.png)](https://imgur.la/image/05-java.662Aic)
+[![06 java](https://imgur.la/images/2025/07/08/06-java.png)](https://imgur.la/image/06-java.662Ve9)
+[![css](https://imgur.la/images/2025/07/08/css.png)](https://imgur.la/image/css.662W5b)
+[![作业提交单截图](https://imgur.la/images/2025/07/08/9638837c6248eefaf7faa7e04aaa7789.png)](https://imgur.la/image/%E4%BD%9C%E4%B8%9A%E6%8F%90%E4%BA%A4%E5%8D%95%E6%88%AA%E5%9B%BE.662XKO)
 ## GitHub 仓库管理
 
 本项目所有代码和文档均通过 Git 进行版本控制，并托管在公共 GitHub 仓库中。Commit 信息遵循清晰、有意义的原则，以保持良好的开发历史记录。
