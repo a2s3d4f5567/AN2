@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "九月的网站",
+  title: "小草的网站",
   description: "一个集成了 WakaTime 和 QAnything 的 Next.js 应用",
 };
 
