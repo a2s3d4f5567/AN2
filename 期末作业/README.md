@@ -63,7 +63,7 @@
 
 1.  **克隆仓库**
     ```bash
-    git clone [你的仓库URL]
+    git clone [https://github.com/a2s3d4f5567/AN2.git]
     cd final-project
     ```
 
